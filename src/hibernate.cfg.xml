@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" >
+<hibernate-configuration>
+<session-factory>
+    <!-- <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+    <property name="hibernate.c3p0.max_size">20</property>
+    <property name="hibernate.c3p0.min_size">5</property>
+    <property name="hibernate.c3p0.timeout">120</property>
+    <property name="hibernate.c3p0.acquire_increment">2</property>
+    <property name="hibernate.c3p0.timeout">120</property> -->
+	<property name="connection.driver_class">
+		oracle.jdbc.driver.OracleDriver
+	</property>
+	<property name="connection.url">
+		jdbc:oracle:thin:@192.168.1.79:1521:nek
+	</property>
+	<property name="connection.username">app_incom</property>
+	<property name="connection.password">intest</property>
+	<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+	<property name="show_sql">false</property>
+	<property name="format_sql">false</property>
+	<property name="hibernate.jdbc.fetch_size">30</property>
+	<property name="hibernate.jdbc.batch_size">30</property>
+	
+	<!--  
+	<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+	<property name="cache.use_second_level_cache">true</property>
+	<property name="cache.use_query_cache">true</property>
+	-->
+	<mapping resource="com/intest/bean/RealTimeEntity.hbm.xml" />
+	<mapping resource="com/intest/bean/RealTimeStatusEntity.hbm.xml" />
+	<mapping resource="com/intest/bean/DataWarehouse.hbm.xml" />
+	<mapping resource="com/intest/bean/Config.hbm.xml" />
+	<mapping resource="com/intest/bean/MqttResult.hbm.xml" />
+</session-factory>
+</hibernate-configuration>
